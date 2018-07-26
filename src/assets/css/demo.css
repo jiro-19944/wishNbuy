@@ -104,7 +104,7 @@ a, img {
     padding: 12px 35px;
     margin: auto;
     display: block;
-    background-color: #f9b852;
+    background-color: #330033;
     border: none;
     color: #fff;
     border-radius: 25px;
@@ -112,7 +112,7 @@ a, img {
 
 .btn.custom-violet-btn:hover {
     color: #fff;
-    background-color: #cc904d;
+    background-color: #260026;
 }
 
 .greenStatus {
@@ -283,7 +283,7 @@ label.btn {
 
 .sidebar .logo,
 .main-panel .navbar {
-    background-color: #261404;
+    background-color: #990033;
 }
 
 .sidebar .sidebar-background {

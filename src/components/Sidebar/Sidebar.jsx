@@ -11,8 +11,13 @@ class Sidebar extends Component{
         this.dropDown = this.dropDown.bind(this);
         this.state = {
             width: window.innerWidth,
-            dropDowned: false,
-            dropDownArrow: false
+            dropDownRoutes: {
+                1: {dropDowned: false, dropDownArrow: false},
+                2: {dropDowned: false, dropDownArrow: false},
+                3: {dropDowned: false, dropDownArrow: false},
+                4: {dropDowned: false, dropDownArrow: false},
+                5: {dropDowned: false, dropDownArrow: false}
+            }
         }
     }
     activeRoute(routeName) {
@@ -24,17 +29,23 @@ class Sidebar extends Component{
     componentDidMount() {
         this.updateDimensions();
     }
-    dropDown (dropDown, child) {
+    dropDown (dropDown, child, id) {
         return () => {
             if (dropDown) {
-                if (!this.state.dropDowned) {
-                    this.setState(() => ({dropDowned: true, dropDownArrow: true}))
+                if (!this.state.dropDownRoutes[id].dropDowned) {
+                    this.setState(() => ({dropDownRoutes: {...this.state.dropDownRoutes, [id]: {dropDowned: true, dropDownArrow: true}}}))
                 } else {
-                    this.setState(() => ({dropDowned: false, dropDownArrow: false}))
+                    this.setState(() => ({dropDownRoutes: {...this.state.dropDownRoutes, [id]: {dropDowned: false, dropDownArrow: false}}}))
                 }
-                window.location.href = window.location.origin + "/#/add_product";
+                // TODO add firs child route into routes.jsx to redirect to the first child component when drop down is opened
+                // window.location.href = window.location.origin + "/#/add_product";
             } else if (!child) {
-                this.setState(() => ({dropDowned: false, dropDownArrow: false}))
+                let dropDownRoutes = this.state.dropDownRoutes;
+                for (let key in dropDownRoutes) {
+                    dropDownRoutes[key]. dropDowned = false;
+                    dropDownRoutes[key]. dropDownArrow = false;
+                }
+                this.setState(() => ({dropDownRoutes}))
             }
         }
     }
@@ -61,8 +72,8 @@ class Sidebar extends Component{
                                     }
                                     return (
                                         <li className={prop.child ? "submenu" : ""}
-                                            key={index} onClick={self.dropDown(prop.dropDown, prop.child)}>
-                                            <NavLink to={prop.path} className={`nav-link ${prop.dropDown && this.state.dropDownArrow ? "open" : ""}`}
+                                            key={index} onClick={self.dropDown(prop.dropDown, prop.child, prop.id)}>
+                                            <NavLink to={prop.path} className={`nav-link ${prop.dropDown && self.state.dropDownRoutes[prop.id].dropDownArrow ? "open" : ""}`}
                                                      activeClassName="active">
                                                 <i className={prop.icon}></i>
                                                 <p className={`${prop.count ? "circle-number" : ""}`}>{prop.name}{prop.count ? <span>11</span> : null}</p>
