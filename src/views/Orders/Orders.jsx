@@ -233,7 +233,7 @@ class Orders extends Component {
         }
         let paginationInfo = this.getPaginationInfo();
         return (
-            <div className="content header-custom-block">
+            <div className="content header-custom-block ">
                 <Grid fluid>
                     <ChooseFilials /*filterProductsByBranch={this.filterProductsByBranch}*/ title="Заказы" filials={this.props.props.data.arr} />
                     <div className="orders-block">
