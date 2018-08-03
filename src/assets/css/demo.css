@@ -940,16 +940,21 @@ p.circle-number > span,
     position: absolute;
     top: 6px;
     right: -5px;
-    background: #f9b852;
-    min-width: 9px;
+    min-width: 14px;
     min-height: 13px;
     line-height: 11px;
     text-align: center;
     padding: 2px;
-    color: #000;
+    color: #fff;
     font-size: 10px;
     border-radius: 50%;
 
+}
+.icon-notification.circle-number > span {
+    background: #e52435;
+}
+.icon-messages.circle-number > span {
+    background: #232730;
 }
 
 p.circle-number > span {
@@ -961,6 +966,10 @@ p.circle-number > span {
     line-height: 19px;
     padding: 0 2px;
     border-radius: 7px;
+}
+
+.bg-red-notitification {
+    background: #cc0033;
 }
 
 body .sidebar .nav li > a {
@@ -5855,4 +5864,30 @@ fieldset[disabled] .btn-neutral.active {
 .table-upgrade td:nth-child(2),
 .table-upgrade td:nth-child(3) {
     text-align: center;
+}
+/* New Styles */
+.header-bottom {
+    float: left;
+    width: 100%;
+}
+.custom-serach-parent {
+    position: relative;
+    width: 35%;
+    margin-top: 11px;
+    display: inline-block;
+    background: url(../img/search-icon.png) right 20px center no-repeat;
+    float: left;
+}
+.custom-serach {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    opacity: .2;
+    padding: 2px 42px 2px 10px;
+    border-radius: 5px;
+    height: 40px;
+    box-sizing: border-box;
+}
+.custom-serach:focus {
+    opacity: .6;
 }

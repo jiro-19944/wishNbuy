@@ -28,6 +28,9 @@ class HeaderLinks extends Component{
     render () {
         return (
             <div className="header-bottom">
+                <div className="custom-serach-parent">
+                    <input className="custom-serach" type="Search" />
+                </div>
                 <div className="nav navbar-nav navbar-right">
                     <a onClick={this.toggleNotMesifications("icon-notification")} className="icon-notification circle-number remove-arrow"><span>{this.props.props.data.notification_count && this.props.props.data.notification_count}</span></a>
                     <a onClick={this.toggleNotMesifications("icon-messages")} className="icon-messages circle-number remove-arrow"><span>{this.props.props.data.message_count && this.props.props.data.message_count}</span></a>
